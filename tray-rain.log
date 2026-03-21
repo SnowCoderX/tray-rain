@@ -1,0 +1,212 @@
+2026-03-16 23:58:08,984 INFO Tray Rain starting. PID=72148
+2026-03-16 23:58:08,985 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 1, 'rain_threshold_mm': 0.1, 'show_debug_console': False}
+2026-03-16 23:59:02,858 INFO Tray Rain starting. PID=67712
+2026-03-16 23:59:02,858 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 1, 'rain_threshold_mm': 0.1, 'show_debug_console': False}
+2026-03-17 00:06:32,931 INFO Tray Rain starting. PID=71240
+2026-03-17 00:06:32,931 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 1, 'rain_threshold_mm': 0.1, 'show_debug_console': False}
+2026-03-17 00:07:29,327 INFO Tray Rain starting. PID=71744
+2026-03-17 00:07:29,328 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 1, 'rain_threshold_mm': 0.1, 'show_debug_console': True}
+2026-03-17 00:18:35,962 INFO Tray Rain starting. PID=76308
+2026-03-17 00:18:35,962 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': None, 'force_temp': None}
+2026-03-17 00:20:37,505 INFO Tray Rain starting. PID=25288
+2026-03-17 00:20:37,506 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': True, 'force_temp': None}
+2026-03-17 00:22:19,583 INFO Tray Rain starting. PID=57236
+2026-03-17 00:22:19,583 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': None, 'force_temp': None}
+2026-03-17 00:24:55,257 INFO Tray Rain starting. PID=72336
+2026-03-17 00:24:55,257 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': None, 'force_temp': None}
+2026-03-17 02:40:26,685 INFO Tray Rain starting. PID=56796
+2026-03-17 02:40:26,685 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': False, 'force_temp': None}
+2026-03-17 02:40:39,916 INFO Tray Rain starting. PID=70236
+2026-03-17 02:40:39,916 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': True, 'force_temp': None}
+2026-03-17 02:41:24,514 INFO Tray Rain starting. PID=62804
+2026-03-17 02:41:24,514 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': False, 'force_temp': 11}
+2026-03-17 02:41:44,783 INFO Tray Rain starting. PID=44444
+2026-03-17 02:41:44,783 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': False, 'force_temp': -33}
+2026-03-17 14:01:58,245 INFO Tray Rain starting. PID=34228
+2026-03-17 14:01:58,246 INFO Config: {'latitude': 53.2335, 'longitude': 44.941, 'timezone': 'Europe/Moscow', 'units': 'celsius', 'refresh_minutes': 20, 'rain_threshold_mm': 0.1, 'show_debug_console': False, 'force_rain_later': False, 'force_temp': None}
+2026-03-18 23:03:05,962 ERROR Refresh failed
+Traceback (most recent call last):
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ssl.SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=53.2335&longitude=44.941&current=temperature_2m%2Cweather_code%2Cprecipitation&hourly=precipitation%2Cweather_code%2Ctemperature_2m&daily=precipitation_sum&timezone=Europe%2FMoscow (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\Documents\codex\tray-rain\app.py", line 278, in refresh
+    info = fetch_weather(cfg)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\Documents\codex\tray-rain\app.py", line 180, in fetch_weather
+    r = requests.get("https://api.open-meteo.com/v1/forecast", params=params, timeout=12)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 698, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=53.2335&longitude=44.941&current=temperature_2m%2Cweather_code%2Cprecipitation&hourly=precipitation%2Cweather_code%2Ctemperature_2m&daily=precipitation_sum&timezone=Europe%2FMoscow (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+2026-03-18 23:23:10,993 ERROR Refresh failed
+Traceback (most recent call last):
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+    ~~~~~~~~~~~~^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 796, in connect
+    sock_and_verified = _ssl_wrap_socket_and_match_hostname(
+        sock=sock,
+    ...<14 lines>...
+        assert_fingerprint=self.assert_fingerprint,
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connection.py", line 975, in _ssl_wrap_socket_and_match_hostname
+    ssl_sock = ssl_wrap_socket(
+        sock=sock,
+    ...<8 lines>...
+        tls_in_tls=tls_in_tls,
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 483, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(sock, context, tls_in_tls, server_hostname)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\ssl_.py", line 527, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 455, in wrap_socket
+    return self.sslsocket_class._create(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        sock=sock,
+        ^^^^^^^^^^
+    ...<5 lines>...
+        session=session
+        ^^^^^^^^^^^^^^^
+    )
+    ^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1076, in _create
+    self.do_handshake()
+    ~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\ssl.py", line 1372, in do_handshake
+    self._sslobj.do_handshake()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^
+ssl.SSLEOFError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+        conn,
+    ...<10 lines>...
+        **response_kw,
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+urllib3.exceptions.SSLError: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 667, in send
+    resp = conn.urlopen(
+        method=request.method,
+    ...<9 lines>...
+        chunked=chunked,
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+        method, url, error=new_e, _pool=self, _stacktrace=sys.exc_info()[2]
+    )
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=53.2335&longitude=44.941&current=temperature_2m%2Cweather_code%2Cprecipitation&hourly=precipitation%2Cweather_code%2Ctemperature_2m&daily=precipitation_sum&timezone=Europe%2FMoscow (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\Documents\codex\tray-rain\app.py", line 278, in refresh
+    info = fetch_weather(cfg)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\Documents\codex\tray-rain\app.py", line 180, in fetch_weather
+    r = requests.get("https://api.open-meteo.com/v1/forecast", params=params, timeout=12)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\SNOW.DESKTOP-8DTROLL\AppData\Local\Programs\Python\Python313\Lib\site-packages\requests\adapters.py", line 698, in send
+    raise SSLError(e, request=request)
+requests.exceptions.SSLError: HTTPSConnectionPool(host='api.open-meteo.com', port=443): Max retries exceeded with url: /v1/forecast?latitude=53.2335&longitude=44.941&current=temperature_2m%2Cweather_code%2Cprecipitation&hourly=precipitation%2Cweather_code%2Ctemperature_2m&daily=precipitation_sum&timezone=Europe%2FMoscow (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1032)')))
