@@ -1,4 +1,4 @@
-# Tray Rain (Windows 11)
+# Tray Rain (Windows)
 
 Small Windows tray app that shows current temperature and whether rain is expected today.
 
