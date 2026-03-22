@@ -1,4 +1,6 @@
 # Tray Rain (Windows)
+I'm **not a Python developer**, so this is a purely **amateur / hobby project**.  
+The code was written for personal use only and has a lot of room for improvements and optimizations.
 
 Small Windows tray app that shows current temperature and whether rain is expected today.
 
