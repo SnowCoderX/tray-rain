@@ -2,6 +2,7 @@
 import json
 import logging
 import os
+import sys
 import threading
 import warnings
 from datetime import datetime
@@ -9,6 +10,7 @@ from datetime import datetime
 import requests
 from PIL import Image, ImageDraw, ImageFont
 import pystray
+import webview
 
 try:
     from requests import RequestsDependencyWarning
@@ -20,8 +22,20 @@ try:
 except Exception:  # pragma: no cover
     ZoneInfo = None
 
-CONFIG_PATH = os.path.join(os.path.dirname(__file__), "config.json")
-LOG_PATH = os.path.join(os.path.dirname(__file__), "tray-rain.log")
+def app_dir():
+    if getattr(sys, "frozen", False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(__file__)
+
+def resource_path(name):
+    base = getattr(sys, "_MEIPASS", os.path.dirname(__file__))
+    return os.path.join(base, name)
+
+APP_DIR = app_dir()
+
+CONFIG_PATH = os.path.join(APP_DIR, "config.json")
+LOG_PATH = os.path.join(APP_DIR, "tray-rain.log")
+MAP_HTML_PATH = resource_path("map.html")
 
 DEFAULT_CONFIG = {
     "latitude": 55.7558,
@@ -93,6 +107,11 @@ def load_config():
     return cfg
 
 
+def save_config(cfg):
+    with open(CONFIG_PATH, "w", encoding="utf-8") as f:
+        json.dump(cfg, f, ensure_ascii=False, indent=2)
+
+
 def get_tzinfo(name):
     if ZoneInfo is None:
         return None
@@ -125,6 +144,23 @@ def load_font(size, bold=False):
         return ImageFont.truetype(f"C:\\Windows\\Fonts\\{font_name}", size)
     except Exception:
         return ImageFont.load_default()
+
+
+def load_map_html(lat, lon):
+    try:
+        with open(MAP_HTML_PATH, "r", encoding="utf-8") as f:
+            html = f.read()
+    except Exception:
+        return None
+    return html.replace("{{LAT}}", f"{lat}").replace("{{LON}}", f"{lon}")
+
+
+class MapApi:
+    def __init__(self, on_set):
+        self._on_set = on_set
+
+    def set_location(self, lat, lon):
+        return self._on_set(lat, lon)
 
 
 def build_icon(temp_c, rain_later):
@@ -282,6 +318,9 @@ def main():
     }
     lock = threading.Lock()
     stop_event = threading.Event()
+    map_window = None
+    map_window_lock = threading.Lock()
+    keepalive_window = None
 
     def refresh():
         try:
@@ -315,9 +354,71 @@ def main():
     def on_open_log(icon_obj, item):
         os.startfile(LOG_PATH)
 
+    def on_set_location(lat, lon):
+        try:
+            cfg["latitude"] = float(lat)
+            cfg["longitude"] = float(lon)
+        except Exception:
+            return {"ok": False, "message": "Некорректные координаты"}
+        save_config(cfg)
+        refresh()
+        return {"ok": True, "message": "Локация сохранена"}
+
+    def on_map_closed():
+        nonlocal map_window
+        map_window = None
+
+    def ensure_map_window():
+        nonlocal map_window
+        html = load_map_html(cfg.get("latitude"), cfg.get("longitude"))
+        if not html:
+            with lock:
+                state["error"] = "map.html not found"
+                state["line1"], state["line2"] = format_menu_lines(None, "map.html not found")
+            icon.title = "Погода: ошибка"
+            icon.update_menu()
+            return None
+
+        if map_window is None:
+            map_window = webview.create_window(
+                "Выбор локации",
+                html=html,
+                width=540,
+                height=600,
+                resizable=True,
+                js_api=MapApi(on_set_location),
+            )
+            try:
+                map_window.events.closed += on_map_closed
+            except Exception:
+                pass
+        else:
+            try:
+                map_window.load_html(html)
+            except Exception:
+                pass
+        return map_window
+
+    def on_open_map(icon_obj, item):
+        with map_window_lock:
+            window = ensure_map_window()
+            if not window:
+                return
+            try:
+                window.show()
+            except Exception:
+                pass
+
     def on_quit(icon_obj, item):
         stop_event.set()
         icon_obj.stop()
+        try:
+            if map_window is not None:
+                map_window.destroy()
+            if keepalive_window is not None:
+                keepalive_window.destroy()
+        except Exception:
+            pass
 
     def menu_line1(_item):
         with lock:
@@ -331,6 +432,7 @@ def main():
         pystray.MenuItem(menu_line1, None, enabled=False),
         pystray.MenuItem(menu_line2, None, enabled=False),
         pystray.Menu.SEPARATOR,
+        pystray.MenuItem("Выбрать локацию на карте", on_open_map),
         pystray.MenuItem("Обновить", on_refresh),
         pystray.MenuItem("Открыть настройки", on_open_config),
         pystray.MenuItem("Открыть лог", on_open_log),
@@ -343,7 +445,11 @@ def main():
         icon_obj.visible = True
         threading.Thread(target=refresh_loop, daemon=True).start()
 
-    icon.run(setup=setup)
+    def run_tray():
+        icon.run(setup=setup)
+
+    keepalive_window = webview.create_window("Tray Rain", html="<html></html>", hidden=True)
+    webview.start(gui="edgechromium", debug=False, func=run_tray)
 
 
 if __name__ == "__main__":
