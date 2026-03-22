@@ -119,9 +119,10 @@ def draw_droplet(draw, center_x, center_y, size, color):
     )
 
 
-def load_font(size):
+def load_font(size, bold=False):
+    font_name = "segoeuib.ttf" if bold else "segoeui.ttf"
     try:
-        return ImageFont.truetype("C:\\Windows\\Fonts\\segoeui.ttf", size)
+        return ImageFont.truetype(f"C:\\Windows\\Fonts\\{font_name}", size)
     except Exception:
         return ImageFont.load_default()
 
@@ -139,13 +140,22 @@ def build_icon(temp_c, rain_later):
     else:
         text = f"{int(round(temp_c))}"
 
-    font = load_font(28)
+    if len(text) <= 1:
+        font_size = 34
+    elif len(text) == 2:
+        font_size = 30
+    else:
+        font_size = 26
+
+    font = load_font(font_size, bold=True)
     text_w, text_h = text_size(draw, text, font)
     draw.text(
         ((size - text_w) / 2, (size - text_h) / 2 - 2),
         text,
         font=font,
         fill=(255, 255, 255, 255),
+        stroke_width=2 if font_size >= 30 else 1,
+        stroke_fill=(20, 20, 20, 255),
     )
 
     if rain_later:
