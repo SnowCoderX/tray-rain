@@ -36,13 +36,17 @@ APP_DIR = app_dir()
 CONFIG_PATH = os.path.join(APP_DIR, "config.json")
 LOG_PATH = os.path.join(APP_DIR, "tray-rain.log")
 MAP_HTML_PATH = resource_path("map.html")
+APP_NAME = "Tray Rain"
+__version__ = "1.4"
+REPO_URL = "https://github.com/SnowCoderX/tray-rain"
+RELEASES_URL = f"{REPO_URL}/releases"
 
 DEFAULT_CONFIG = {
     "latitude": 55.7558,
     "longitude": 37.6176,
     "timezone": "Europe/Moscow",
     "units": "celsius",
-    "language": "ru",
+    "language": "en",
     "refresh_minutes": 20,
     "rain_threshold_mm": 0.1,
     "show_debug_console": False,
@@ -77,6 +81,9 @@ LANG_STRINGS = {
         "menu_open_log": "Открыть лог",
         "menu_quit": "Выход",
         "menu_language": "Язык",
+        "menu_about": "О приложении",
+        "menu_releases": "Открыть релизы",
+        "menu_version": "Версия {version}",
         "lang_ru": "Русский",
         "lang_en": "English",
         "intervals_none": "Сегодня дождя не ожидается",
@@ -120,6 +127,9 @@ LANG_STRINGS = {
         "menu_open_log": "Open log",
         "menu_quit": "Quit",
         "menu_language": "Language",
+        "menu_about": "About",
+        "menu_releases": "Open releases",
+        "menu_version": "Version {version}",
         "lang_ru": "Russian",
         "lang_en": "English",
         "intervals_none": "No rain expected today",
@@ -246,12 +256,12 @@ def save_config(cfg):
         json.dump(cfg, f, ensure_ascii=False, indent=2)
 
 def get_lang(cfg):
-    lang = (cfg or {}).get("language", "ru")
-    return lang if lang in LANG_STRINGS else "ru"
+    lang = (cfg or {}).get("language", "en")
+    return lang if lang in LANG_STRINGS else "en"
 
 
 def t(lang, key, **kwargs):
-    lang = lang if lang in LANG_STRINGS else "ru"
+    lang = lang if lang in LANG_STRINGS else "en"
     text = LANG_STRINGS.get(lang, {}).get(key, key)
     try:
         return text.format(**kwargs)
@@ -659,6 +669,12 @@ def main():
     def on_open_log(icon_obj, item):
         os.startfile(LOG_PATH)
 
+    def on_open_releases(icon_obj, item):
+        try:
+            os.startfile(RELEASES_URL)
+        except Exception:
+            logging.exception("Open releases failed")
+
     def intervals_menu_items():
         lang = get_lang(cfg)
         with lock:
@@ -792,6 +808,18 @@ def main():
         ),
     )
 
+    about_menu = pystray.Menu(
+        pystray.MenuItem(
+            lambda _item: t(get_lang(cfg), "menu_version", version=__version__),
+            None,
+            enabled=False,
+        ),
+        pystray.MenuItem(
+            lambda _item: t(get_lang(cfg), "menu_releases"),
+            on_open_releases,
+        ),
+    )
+
     menu = pystray.Menu(
         pystray.MenuItem(menu_line1, None, enabled=False),
         pystray.MenuItem(menu_line2, None, enabled=False),
@@ -802,6 +830,7 @@ def main():
         pystray.MenuItem(lambda _item: t(get_lang(cfg), "menu_open_config"), on_open_config),
         pystray.MenuItem(lambda _item: t(get_lang(cfg), "menu_open_log"), on_open_log),
         pystray.MenuItem(lambda _item: t(get_lang(cfg), "menu_language"), language_menu),
+        pystray.MenuItem(lambda _item: t(get_lang(cfg), "menu_about"), about_menu),
         pystray.MenuItem(lambda _item: t(get_lang(cfg), "menu_quit"), on_quit),
     )
 
