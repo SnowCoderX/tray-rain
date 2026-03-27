@@ -1,9 +1,9 @@
-﻿<!doctype html>
-<html lang="ru">
+<!doctype html>
+<html lang="{{LANG}}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Выбор локации</title>
+  <title>{{TITLE}}</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <style>
     html, body { height: 100%; margin: 0; font-family: Segoe UI, Arial, sans-serif; }
@@ -16,8 +16,8 @@
 </head>
 <body>
   <div id="top">
-    <button id="save">Сохранить координаты</button>
-    <div id="status">Кликните по карте, затем сохраните.</div>
+    <button id="save">{{SAVE}}</button>
+    <div id="status">{{STATUS}}</div>
   </div>
   <div id="map"></div>
 
@@ -25,11 +25,14 @@
   <script>
     const initialLat = {{LAT}};
     const initialLon = {{LON}};
+    const statusSelectedPrefix = "{{STATUS_SELECTED_PREFIX}}";
+    const statusSaved = "{{STATUS_SAVED}}";
+    const statusApiUnavailable = "{{STATUS_API_UNAVAILABLE}}";
 
     const map = L.map('map').setView([initialLat, initialLon], 11);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
-      attribution: '© OpenStreetMap'
+      attribution: '? OpenStreetMap'
     }).addTo(map);
 
     let marker = L.marker([initialLat, initialLon]).addTo(map);
@@ -37,7 +40,7 @@
 
     function setMarker(lat, lon) {
       marker.setLatLng([lat, lon]);
-      statusEl.textContent = `Выбрано: ${lat.toFixed(5)}, ${lon.toFixed(5)}`;
+      statusEl.textContent = `${statusSelectedPrefix}${lat.toFixed(5)}, ${lon.toFixed(5)}`;
     }
 
     map.on('click', (e) => {
@@ -51,10 +54,10 @@
         if (res && res.message) {
           statusEl.textContent = res.message;
         } else {
-          statusEl.textContent = 'Сохранено.';
+          statusEl.textContent = statusSaved;
         }
       } else {
-        statusEl.textContent = 'API недоступен. Откройте окно через приложение.';
+        statusEl.textContent = statusApiUnavailable;
       }
     });
   </script>

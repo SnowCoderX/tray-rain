@@ -6,6 +6,7 @@
   "refresh_minutes": 20,
   "rain_threshold_mm": 0.1,
   "show_debug_console": false,
-  "force_rain_later": false,
-  "force_temp": null
+  "force_rain_later": null,
+  "force_temp": null,
+  "language": "ru"
 }
