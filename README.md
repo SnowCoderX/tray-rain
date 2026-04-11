@@ -4,7 +4,7 @@ The code was written for personal use only and has a lot of room for improvement
 
 Small Windows tray app that shows current temperature and whether rain is expected today.
 Now includes a map-based location picker from the tray menu.
-
+![](https://github.com/SnowCoderX/tray-rain/blob/main/screencast.gif) 
 ## Setup
 
 1. Create a virtual environment (optional)
