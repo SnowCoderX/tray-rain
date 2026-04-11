@@ -30,7 +30,7 @@ pythonw app.py
 
 ## Map Location Picker
 
-Use the tray menu item `Выбрать локацию на карте`, click on the map, then press **Сохранить координаты**.
+Use the tray menu item `Choose location on map`, click on the map, then press **Сохранить координаты**.
 The app writes the selected latitude/longitude into `config.json`.
 
 ## Configure
